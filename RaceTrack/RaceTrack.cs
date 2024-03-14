@@ -26,6 +26,7 @@ namespace RaceTrack.RaceTrack
             Drivers.Add(new FarmerJoe(new Tractor()));
             Drivers.Add(new Antonio(new FordGt()));
             Drivers.Add(new SoccerMom(new Minivan()));
+            Drivers.Add(new Symere(new NissanGTR()));
         }
 
         public void DriversReady()
@@ -55,11 +56,21 @@ namespace RaceTrack.RaceTrack
             Thread.Sleep(1000);
         }
 
+        public void EndRaceOld()
+        {
+            foreach (var driver in Drivers)
+            {
+                driver.Stop();
+            }
+            Thread.Sleep(1000);
+        }
+        
         public void EndRace()
         {
             foreach (var driver in Drivers)
             {
                 driver.Stop();
+                driver.StopEngine();
             }
             Thread.Sleep(1000);
         }
